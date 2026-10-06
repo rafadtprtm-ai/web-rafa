@@ -170,8 +170,8 @@ const API_URL = "https://script.google.com/macros/s/AKfycbyX6bH1yfSqJPzUOdHebb6f
   amount.addEventListener("input", function () { setAmount(digits(amount.value).replace(/^0+/, "")); });
 
   function flag(id, bad) { $(id).classList.toggle("err", bad); return !bad; }
-  ["name", "phone", "program"].forEach(function (k) {
-    var map = { name: "fName", phone: "fPhone", program: "fProg" };
+  ["name", "phone", "programSel"].forEach(function (k) {
+    var map = { name: "fName", phone: "fPhone", programSel: "fProg" };
     $(k).addEventListener("input", function () { $(map[k]).classList.remove("err"); });
     $(k).addEventListener("change", function () { $(map[k]).classList.remove("err"); });
   });
@@ -183,7 +183,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbyX6bH1yfSqJPzUOdHebb6f
 
     var name = $("name").value.trim();
     var phone = digits($("phone").value);
-    var program = $("program").value;
+    var program = $("programSel").value;
     var nominal = parseInt(digits(amount.value) || "0", 10);
 
     var ok = true;
